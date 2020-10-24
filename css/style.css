@@ -1,119 +1,535 @@
-.form_div{
+html, body{
+    background-color: rgb(35, 29, 51);
+    margin:0;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    background-color: darkslategray;
+    position: relative;
+    overflow: inherit;
+    overflow-x: hidden;
 }
 
-.Upper_div{
-    display: flex;
-    flex: 6;
-    flex-direction: row;
-    margin: 0;
-    background-color: rgb(16, 32, 29);
+.musicFilter {
+    position: relative;
+    background-image:linear-gradient(rgba(0, 60, 60, 0.6), rgba(0, 13, 13, 0.6)), url(/picture/i2.jpg);
+    box-shadow: 0.15em 0em 3px 2px #052016a9;
+}
+.mainArea{
+    flex: 7;
+}
+.productList {
+    width: calc(100% - 20px);
+    background-color:  rgba(0, 128, 128, 1);
+    background-image: linear-gradient(rgb(0, 87, 87), rgb(0, 31, 31));
+    padding: 10px;
+    margin-right: 10px;
+    display: grid;
+    box-shadow: 0.5em -0.5em 7px 4px #052016a9;
+    grid-auto-rows: max-content;
+}
+.oneProduct {
+    background-color: rgba(25, 104, 15, 0.582);
+    box-shadow: 3px 3px 3px 3px #052016a9;
+    background-image: linear-gradient(rgba(0, 87, 87, 0.8), rgba(0, 31, 31, 0.8)), url(/picture/i2.jpg) ;
+    position: relative;
+    color: rgb(204, 129, 102);
+    text-align: center;
+}
+.songName {
+    margin:10px;
+    font-family: cursive;
+    cursor: default;
+}
+.prise{
+    position: absolute;
+    background-color: rgba(214, 128, 96, 0.9);
+    color: rgb(0, 87, 87);
+    align-self: center;
+    font-family: cursive;
+    cursor: default;
 }
 
-.add_btn {
-    border-radius: 3px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    width: 100px;
-    height: 30px;
-    background-color: rgb(156, 224, 192);
-    color: black;
-    resize: none;
-    border: none;
-    overflow: auto;
+@media  (min-width: 560px){
+    .musicFilter {
+        flex: 2;
+    }
+    .productList {
+        padding-bottom: calc(5vmin + 10px);
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap:10px;
+    }
+    .oneProduct {
+        height: calc(100% + 5vmin);
+    }
+    .songName {
+        font-size: 2vmin;
+    }
+    .menuUp{
+        height: 5vmin;
+        width: 5vmin;
+        border-radius: 2.5vmin;
+    }
+    .playBtn{
+        bottom: 10px;
+        left: 10px;
+        width: 4.5vmin;
+        height: 4.5vmin;
+        border-radius: 2.25vmin;
+        background-size:  3.6vmin;
+    }
+    .bayBtn{
+        bottom: 10px;
+        right: 10px;
+        width: 4.5vmin;
+        height: 4.5vmin;
+        border-radius: 2.25vmin;
+        background-size:  3vmin;
+    }
+    .footer{
+        font-size: 2.5vh;
+    }
+    .searchOptBtn{
+        height: 7vh;
+    }
+    .prise{
+        top:0;
+        left:0;
+        padding: 3px;
+        font-size: 1.75vmin;
+    }
+} 
+
+@media  (max-width: 559px){
+
+    .musicFilter {
+        flex: 1;
+    }
+    .productList {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap:2vmin;
+    }
+    .songName {
+        font-size: 4vmin;
+    }
+    .menuUp{
+        height: 10vmin;
+        width: 10vmin;
+        border-radius: 5vmin;
+    }
+    .playBtn{
+        top: 10px;
+        left: 10px;
+        width: 7vmin;
+        height: 7vmin;
+        border-radius: 3.5vmin;
+        background-size:  5.5vmin;
+    }
+    .bayBtn{
+        top: 10px;
+        right: 10px;
+        width: 7vmin;
+        height: 7vmin;
+        border-radius: 3.5vmin;
+        background-size:  5vmin;
+    }
+    .footer{
+        font-size: 2.5vmin;
+    }
+    .prise{
+        top:30vw;
+        right: 0;
+        padding: 3px;
+        font-size: 4vmin;
+    }
+}
+
+.menuUp{
+    position: sticky;
+    bottom: 30px;
+    cursor: pointer;
+    right: 30px;
+    float:right;
+    background-image: url(/picture/s2.png);
+    background-color: rgba(0, 128, 128, 0.7);
+    background-position: center;
+    background-size: 3vmin;
+    background-repeat: no-repeat;
     outline: none;
-}
-
-.del_btn {
-    border-radius: 3px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    width: 100px;
-    height: 30px;
-    background-color:rgb(78, 117, 99);
-    color: black;
-    resize: none;
     border: none;
-    overflow: auto;
-    outline: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 3px 3px 3px 3px #0f5e3ea9;
 }
-
-.logo {
-    margin-top: 10px;
-    color:   rgb(78, 117, 99);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    margin-left:auto; 
-    margin-right:70px;
+.menuUp:hover {
+    background-color: rgb(204, 129, 102);
+    transform: scale(-1.2, 1.2);
 }
-
-.main_div{
-    display: flex;
-    flex: 94;
-    flex-direction: row;
-    height: 95%;
-    background-color: rgb(78, 117, 99);
-}
-
-.note_list {
-    margin: 0;
-    flex: 35;
-    height: 100%;
-    overflow-y: scroll;
-}
-
 ::-webkit-scrollbar {
-    width: 13px;
-    background-color: rgb(78, 117, 99);
+    width: 7px;
+    background-color: #9de0adad;
 }
-
 ::-webkit-scrollbar-thumb {
-    background:  rgb(16, 32, 29);
+    background:  #594f4f9f;
     border-radius: 3px;
 }
-
-.inner_text{
-    padding: 13px 13px 13px 13px;
-    margin: 0;
-    background-color: rgb(23, 48, 40);
-    color: rgb(156, 224, 192);
-    font-size: 20px;
-    flex: 64;
-    flex-direction: row;
-    resize: none;
-    border: none;
-    overflow: auto;
-    outline: none;
-}
-
-.my_note {
-    text-align: left;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 50px;
-    color: rgb(156, 224, 192);
-    font-size: 18px;
-    border-bottom: 1px solid;
-    margin-bottom: -1px;
-    padding: 13px 13px 13px 13px;
-}
-
-
-html, body {
-    margin: 0;
-    height: 100%;
+.title {
+    background-image: linear-gradient(rgba(0, 68, 68, 0.8), rgba(0, 31, 31, 0.9)), url(/picture/i4.jpg);
+    background-position: center;
+    height: 7vh;
+    margin:0px;
+    padding: 0px;
     overflow: hidden;
+    display:  flex;
+    flex-direction: row;
+}
+.leftMenu {
+    background-image: url(/picture/i1.png), radial-gradient(circle, rgba(255, 60, 0, 0.555) 0%, rgba(252,70,107,0) 60%);
+    background-repeat: no-repeat;
+    flex:1;
+    display: inline;
+    padding: 0px;
+    margin: auto 0px auto 30px;
+    background-size: 4.5vh, 4.5vh;
+    height: 4.5vh;
+    width: 4.5vh;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+    border: none;
+}
+.leftMenu:hover {
+    filter: invert(75%) sepia(90%) saturate(10) hue-rotate(-40deg);
+    cursor: pointer;
+    background-image:url(/picture/i1.png), radial-gradient(circle, rgb(255, 123, 0) 0%, rgba(252,70,107,0) 80%);
+}
+.logIn {
+    font-family: cursive;
+    font-size: 2vmin;
+    background-color: rgba(0, 128, 128, 0.7);
+    cursor: pointer;
+    width: fit-content;
+    height:4.5vh;
+    flex:1;
+    display: inline;
+    float: right;
+    margin: auto 30px auto 0px;
+    outline: none;
+    border-style: double;
+    border-width: 3px;
+    border-color:  rgb(204, 129, 102);
+    box-shadow: 3px 3px 3px 3px #0f5e3ea9;
+}
+.shopName {
+    display: inline;
+    cursor: default;
+    margin: auto;
+    flex: 18;
+    background: -webkit-linear-gradient( rgb(185, 53, 0),  rgb(204, 129, 102));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 5vmin;
+}
+.smallBody {
+    background-color:  rgb(0, 31, 31);
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    border-bottom: solid;
+    border-color: rgba(0, 122, 122, 0.568);
+    border-width: 3px;
+}
+.oneProduct:hover{
+    background-image: linear-gradient(#e6490bad,#5f1c0c9f), url(/picture/i2.jpg) ;
+    color: rgb(3, 185, 185);
+}
+.albumCover {
+    width: 95%;
+    height: auto;
+    margin: 5px 2.5% auto 2.5%;
+    object-fit: cover;
+}
+.playBtn {
+    display: inline;
+    box-shadow: 3px 3px 3px 3px #052016a9;
+    background-image: url(/picture/s3.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(0, 160, 160, 0.7);
+    position: absolute;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.bayBtn {
+    display: inline;
+    box-shadow: 3px 3px 3px 3px #052016a9;
+    background-image: url(/picture/s4.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 160, 160, 0.7);
+    position: absolute;
+    outline: none;
+    border:none;
+    cursor: pointer;
+}
+.playBtn:hover, .bayBtn:hover{
+    background-color:  rgb(204, 129, 102);
+}
+.bayBtn[hasbay=true] {
+    background-color:  rgb(158, 100, 79);
+}
+.logIn:hover{
+    background-color:  rgb(204, 129, 102);
+    border-color: rgba(0, 128, 128, 0.7);
+}
+.addBaner {
+    height: 10vh;
+    width: 30vw;
+    cursor: default;
+    position: absolute;
+    bottom: 50vh;
+    right: 35vw;
+    text-align: center;
+    font-family: cursive;
+    line-height: 10vh;
+    font-size: 2vw;
+    border-style: double;
+    border-width: 3px;
+}
+.banerBack {
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.404);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+}
+.search {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 65%;
+    display: inline;
+    box-shadow: 3px 3px 3px 3px #052016a9;
+    top:0;
+    margin:10px 0 10px 2.5%;
+    overflow: hidden;
+    height: 5vh;
+    color:  rgb(204, 129, 102);
+    border-style: inset;
+    border-width: 3px;
+    border-color:rgba(0, 128, 128, 1);
+    outline: none;
+    padding:0;
+    font-size: 18px;
+}
+.searchBtn{
+    display:  inline;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 3px #052016a9;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url(/picture/s1.png);
+    background-size: 3vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 25%;
+    height: calc(5vh + 6px);
+    border-style: double;
+    border-width: 3px;
+    border-color:rgba(0, 128, 128, 1);
+    outline: none;
+    overflow: hidden;
+    top: 10px;
+    right: 2.5%;
+    padding:0;
+}
+.searchBtn:hover{
+    background-color:rgba(204, 129, 102, 0.7);
+}
+.searchOptBtn{
+    color: rgb(204, 129, 102);
+    font-size: 3vmin;
+    text-align: left;
+    font-family: cursive;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 3px #052016a9;
+    width: 90%;
+    display: block;
+    margin-left: 5%;
+    margin-top: 10px;
+    background-color: rgba(0, 128, 128, 0);
+    background-image: linear-gradient(rgba(0, 40, 40, 0.8), rgba(0, 31, 31, 0.8));
+    outline: none;
+    z-index: 10;
+    border-style: double;
+    border-color: rgba(0, 108, 108, 0.5);
+    border-width: 3px;
+}
+.checkmarkList{
+    display: none;
+    position: absolute;
+    width: max-content;
+    max-width: calc(100vw - 100%);
+    top:0;
+    left:0;
+    background-image: linear-gradient(#0f5e46e0, #073a37ce) ;
+    padding-bottom: 1.5vmin;
+    padding-right: 1.5vmin;
+    z-index: 1000;
+    border-bottom: double rgb(204, 129, 102) 3px;
+    border-top: double rgb(204, 129, 102) 3px;
+    box-shadow: 3px 3px 3px 3px #052016a9, inset 3px 0px 4px 3px #052016a9;
 }
 
-.my_note[select=true] {
-  color:  rgb(16, 32, 29);
-  background-color: rgb(156, 224, 192);
+.optionName{
+    display: block;
+    position: relative;
+    cursor: pointer;
+    color: rgb(204, 129, 102);
+    padding-left: 5vmin;
+    padding-top: 1vmin;
+    height: max-content;
+    width: auto;
+    font-size: 22px;
+    font-family: cursive;
+}
+.optionName input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+    padding: auto;
+}
+.checkmark {
+    position: absolute;
+    top: calc(50% - 1.5vmin);
+    left: 1vmin;
+    height: 3vmin;
+    width: 3vmin;
+    background-color:  rgba(0, 128, 128, 0.7);
+    box-shadow: 3px 3px 2px 2px #052016a9;
+    border-radius: 1.5vmin;
+}
+.optionName:hover input ~ .checkmark {
+    background-color:#052016;
+}
+.optionName input:checked ~ .checkmark {
+    background-color:  rgb(204, 129, 102);
+}
+.paralax {
+    width: 100%;
+    height: 20Vh;
+    background-size: cover;
+    box-shadow: inset 0.5em 0.5em 7px 4px #052016a9;
+}
+.hoverMenuContainer{
+    margin: auto;
+}
+.infoList{
+    background-color: rgba(0, 31, 31, 0.9);
+    z-index: 10000;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    padding-left: 20px;
+    list-style: circle;
+    width: 0;
+    height: 0;
+    margin: 0 10px 10px -40vw;
+}
+.hoverMenuContainer:hover .infoList{
+    display: block;
+    width: 25vw;
+    height: max-content;
+    animation-name: apearance;
+    animation-duration: 1s;
+    margin: 0 10px 10px 0px;
+}
+.infoList[firstLoad=true]{
+    display: block;
+    animation-name: disapearance;
+    animation-duration: 1s;
+}
+@keyframes apearance{
+    from {
+        margin: 0 10px 10px -40vw;
+    }
+    to {
+        margin: 0 10px 10px 0;
+    }
+}
+@keyframes disapearance{
+    from {
+        margin: 0 10px 10px 0;
+        width: 25vw;
+        height: max-content;
+    }
+    99% {
+        margin: 0 10px 10px -40vw;
+        width: 25vw;
+        height: max-content;
+    }
+    to{
+        width: 0;
+        height: 0;
+    }
+}
+li{
+    line-height: 5vmin;
+    margin:2vmin;
+    text-align: left;
+    font-family: cursive;
+    font-size: 4Vmin;
+    color:rgba(0, 128, 128, 1);
+}
+li:hover{
+    cursor: pointer;
+    text-decoration: underline ;
+    color:rgb(204, 129, 102);
+}
+.pagination{
+    display: grid;
+    margin-bottom: 5vh;
+    margin-top: 3vh;
+    text-align: center;
+    color:rgb(204, 129, 102);
+    box-shadow: 0.5em -0.5em 7px 4px #052016a9;
+    grid-template-columns: 1fr repeat(5, 5vmin) 1fr;
+    grid-auto-rows: 5vmin;
+    grid-gap:2vw;
+}
+.pageNumber{
+    display: inline;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(3, 185, 185, 0);
+    align-items: center;
+    border-radius: 2.5vmin;
+    border-style: solid;
+    border-width: 0.6vmin;
+    border-color: rgb(3, 128, 128);
+}
+.pageMarker{
+    position:absolute;
+    top:0.4vmin;
+    left:0.4vmin;
+    width: 3vmin;
+    height: 3vmin;
+    border-radius: 2vmin;
+    background-color: rgba(3, 128, 128, 1);
+}
+footer{
+    overflow: hidden;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+.footer{
+    flex:1;
+    height: 18vmin;
+    background-color:rgba(0, 31, 31, 1);
+    text-align: left;
+    padding-left: 4vw;
+    padding-top: 4vh;
+    color:rgba(3, 185, 185, 0.4);
+    cursor: default;
 }
