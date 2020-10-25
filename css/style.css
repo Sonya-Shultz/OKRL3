@@ -5,6 +5,7 @@ html, body{
     position: relative;
     overflow: inherit;
     overflow-x: hidden;
+    scrollbar-color: rgb(0, 87, 87) rgb(0, 31, 31);
 }
 
 .musicFilter {
@@ -163,10 +164,10 @@ html, body{
 }
 ::-webkit-scrollbar {
     width: 7px;
-    background-color: #9de0adad;
+    background-color: rgb(0, 31, 31);
 }
 ::-webkit-scrollbar-thumb {
-    background:  #594f4f9f;
+    background:  rgb(0, 87, 87);
     border-radius: 3px;
 }
 .title {
@@ -224,6 +225,7 @@ html, body{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: cursive;
     text-align: center;
     font-size: 5vmin;
 }
