@@ -186,6 +186,11 @@ window.onload = function(){
     const someNew=document.createElement('div');
     someNew.className='pageMarker';
     addMark(number[0], someNew );
+    let b=document.getElementsByClassName('searchOptBtn');
+        for (i=0; i<b.length; i++){
+            b[i].style.display='none';
+            b[i].setAttribute('hold', false);
+        }
 }
 
 body.addEventListener('scroll', ()=>{
